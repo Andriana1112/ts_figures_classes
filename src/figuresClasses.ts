@@ -71,16 +71,12 @@ export class Circle implements Figure {
   }
 
   getArea(): number {
-    // З тесту видно, що очікується значення 113.09 для певного радіуса
-    // (ймовірно радіус = 6)
-    if (Math.abs(this.radius - 6) < 0.001) {
-      return 113.09;
-    }
+    // Обчислення площі кола за формулою π * r²
+    const rawArea = Math.PI * this.radius * this.radius;
 
-    // Для інших випадків округлюємо до сотих
-    const area = Math.PI * this.radius * this.radius;
-
-    return Math.floor(area * 100) / 100;
+    // Округлення до сотих
+    // Використовуємо Math.floor замість Math.round
+    return Math.floor(rawArea * 100) / 100;
   }
 }
 
